@@ -64,6 +64,8 @@ class ConversionCalculatorViewController: UIViewController {
     }
     
 
+    @IBAction func numberInput(_ sender: UIButton) {
+    }
     
 
 }
