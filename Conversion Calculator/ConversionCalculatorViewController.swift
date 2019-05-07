@@ -20,6 +20,7 @@ class ConversionCalculatorViewController: UIViewController {
         var outputUnit: String
     }
     
+    var stringToDouble: Double = 0.0
     let converters = [conversion(label: "fahrenheit to celcius", inputUnit: "°F", outputUnit: "°C"),
                       conversion(label: "celcius to fahrenheit", inputUnit: "°C", outputUnit: "°F"),
                       conversion(label: "miles to kilometers", inputUnit: "mi", outputUnit: "km"),
@@ -65,6 +66,9 @@ class ConversionCalculatorViewController: UIViewController {
     
 
     @IBAction func numberInput(_ sender: UIButton) {
+        inputDisplay.text = inputDisplay.text! + String(sender.tag-1)
+        
+        stringToDouble = Double(inputDisplay.text!)!
     }
     
 
