@@ -11,6 +11,8 @@ import UIKit
 class ConversionCalculatorViewController: UIViewController {
     
     
+    @IBOutlet weak var inputDisplayUnit: UITextView!
+    @IBOutlet weak var outputDisplayUnit: UITextView!
     @IBOutlet weak var outputDisplay: UITextField!
     @IBOutlet weak var inputDisplay: UITextField!
     
@@ -21,6 +23,8 @@ class ConversionCalculatorViewController: UIViewController {
     }
     
     var stringToDouble: Double = 0.0
+    var currentConvert: Int = -1
+    var conversionNumber: String = ""
     let converters = [conversion(label: "fahrenheit to celcius", inputUnit: "°F", outputUnit: "°C"),
                       conversion(label: "celcius to fahrenheit", inputUnit: "°C", outputUnit: "°F"),
                       conversion(label: "miles to kilometers", inputUnit: "mi", outputUnit: "km"),
@@ -32,8 +36,9 @@ class ConversionCalculatorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
         let initialConverter = converters[0]
+        
+        
         outputDisplay.text = initialConverter.outputUnit
         inputDisplay.text = initialConverter.inputUnit
     }
@@ -41,23 +46,28 @@ class ConversionCalculatorViewController: UIViewController {
     @IBAction func convert(_ sender: AnyObject) {
         let alert = UIAlertController(title: "Choose Converter", message: nil, preferredStyle: UIAlertController.Style.actionSheet)
         alert.addAction(UIAlertAction(title: converters[0].label, style: UIAlertAction.Style.default, handler:{ (UIAlertAction)-> Void in
-            self.outputDisplay.text = self.converters[0].outputUnit
-            self.inputDisplay.text = self.converters[0].inputUnit
+            self.outputDisplayUnit.text = self.converters[0].outputUnit
+            self.inputDisplayUnit.text = self.converters[0].inputUnit
+            self.currentConvert = 0
+        
         }
         ))
         alert.addAction(UIAlertAction(title: converters[1].label, style: UIAlertAction.Style.default, handler:{ (UIAlertAction)-> Void in
-            self.outputDisplay.text = self.converters[1].outputUnit
-            self.inputDisplay.text = self.converters[1].inputUnit
+            self.outputDisplayUnit.text = self.converters[1].outputUnit
+            self.inputDisplayUnit.text = self.converters[1].inputUnit
+            self.currentConvert = 1
         }
         ))
         alert.addAction(UIAlertAction(title: converters[2].label, style: UIAlertAction.Style.default, handler:{ (UIAlertAction)-> Void in
-            self.outputDisplay.text = self.converters[2].outputUnit
-            self.inputDisplay.text = self.converters[2].inputUnit
+            self.outputDisplayUnit.text = self.converters[2].outputUnit
+            self.inputDisplayUnit.text = self.converters[2].inputUnit
+            self.currentConvert = 2
         }
         ))
         alert.addAction(UIAlertAction(title: converters[3].label, style: UIAlertAction.Style.default, handler:{ (UIAlertAction)-> Void in
-            self.outputDisplay.text = self.converters[3].outputUnit
-            self.inputDisplay.text = self.converters[3].inputUnit
+            self.outputDisplayUnit.text = self.converters[3].outputUnit
+            self.inputDisplayUnit.text = self.converters[3].inputUnit
+            self.currentConvert = 3
         }
         ))
         
@@ -66,10 +76,23 @@ class ConversionCalculatorViewController: UIViewController {
     
 
     @IBAction func numberInput(_ sender: UIButton) {
-        inputDisplay.text = inputDisplay.text! + String(sender.tag-1)
-        
-        stringToDouble = Double(inputDisplay.text!)!
+        self.inputDisplay.text = self.inputDisplay.text! + String(sender.tag-1)
+        self.outputDisplay.text = "Hello"
+        stringToDouble = Double(self.inputDisplay.text!)!
     }
     
+    
+    @IBAction func clearInput(_ sender: UIButton) {
+  
 
+    }
+    
+    @IBAction func changeState(_ sender: UIButton) {
+        var currentInput: Double
+        currentInput = Double(self.inputDisplay.text!)!
+        
+            currentInput = -currentInput
+            self.inputDisplay.text = "- \(currentInput))"
+        
+    }
 }
