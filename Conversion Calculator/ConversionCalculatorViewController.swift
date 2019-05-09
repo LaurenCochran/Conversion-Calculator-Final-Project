@@ -11,8 +11,9 @@ import UIKit
 class ConversionCalculatorViewController: UIViewController {
     
     
-    @IBOutlet weak var inputDisplayUnit: UITextView!
     @IBOutlet weak var outputDisplayUnit: UITextView!
+    @IBOutlet weak var inputDisplayUnit: UITextView!
+
     @IBOutlet weak var outputDisplay: UITextField!
     @IBOutlet weak var inputDisplay: UITextField!
     
@@ -39,8 +40,8 @@ class ConversionCalculatorViewController: UIViewController {
         let initialConverter = converters[0]
         
         
-        outputDisplay.text = initialConverter.outputUnit
-        inputDisplay.text = initialConverter.inputUnit
+        outputDisplayUnit.text = initialConverter.outputUnit
+        inputDisplayUnit.text = initialConverter.inputUnit
     }
     
     @IBAction func convert(_ sender: AnyObject) {
@@ -77,13 +78,17 @@ class ConversionCalculatorViewController: UIViewController {
 
     @IBAction func numberInput(_ sender: UIButton) {
         self.inputDisplay.text = self.inputDisplay.text! + String(sender.tag-1)
-        self.outputDisplay.text = "Hello"
-        stringToDouble = Double(self.inputDisplay.text!)!
+       // stringToDouble = Double(self.inputDisplay.text!)
+        
+        //work on output later
+        
     }
     
     
     @IBAction func clearInput(_ sender: UIButton) {
-  
+        self.inputDisplay.text = ""
+        self.outputDisplay.text = ""
+        stringToDouble = 0
 
     }
     

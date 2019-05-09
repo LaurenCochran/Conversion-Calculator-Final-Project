@@ -28,42 +28,48 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="91.5"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cEH-4o-5us">
-                                                        <rect key="frame" x="0.0" y="0.0" width="318" height="91.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="302" height="91.5"/>
                                                         <color key="backgroundColor" red="0.84165924430000005" green="1" blue="0.99213378839999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="40"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VHS-0a-OUg">
-                                                        <rect key="frame" x="318" y="0.0" width="57" height="91.5"/>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="VHS-0a-OUg">
+                                                        <rect key="frame" x="302" y="0.0" width="73" height="91.5"/>
                                                         <color key="backgroundColor" red="0.84165924430000005" green="1" blue="0.99213378839999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="40"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="uR0-mY-S5n"/>
+                                                        </connections>
                                                     </textView>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="cEH-4o-5us" firstAttribute="width" secondItem="VHS-0a-OUg" secondAttribute="height" multiplier="316:91" id="lhN-n4-AIN"/>
+                                                    <constraint firstItem="cEH-4o-5us" firstAttribute="width" secondItem="VHS-0a-OUg" secondAttribute="height" multiplier="300:91" id="lhN-n4-AIN"/>
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CVx-yS-lBJ">
                                                 <rect key="frame" x="0.0" y="92.5" width="375" height="91.5"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hkt-eH-EVZ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="318" height="91.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="302" height="91.5"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="40"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="erD-6G-rYS">
-                                                        <rect key="frame" x="318" y="0.0" width="57" height="91.5"/>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="km" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="erD-6G-rYS">
+                                                        <rect key="frame" x="302" y="0.0" width="73" height="91.5"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="40"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="BYZ-38-t0r" id="8P6-6C-nTm"/>
+                                                        </connections>
                                                     </textView>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="hkt-eH-EVZ" firstAttribute="width" secondItem="erD-6G-rYS" secondAttribute="height" multiplier="316:91" id="Knb-ef-qdZ"/>
+                                                    <constraint firstItem="hkt-eH-EVZ" firstAttribute="width" secondItem="erD-6G-rYS" secondAttribute="height" multiplier="300:91" id="Knb-ef-qdZ"/>
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="mUN-sC-AcD">
@@ -294,8 +300,8 @@
                     <connections>
                         <outlet property="inputDisplay" destination="hkt-eH-EVZ" id="CUf-ok-Eaq"/>
                         <outlet property="inputDisplayUnit" destination="erD-6G-rYS" id="cTg-1b-kL8"/>
-                        <outlet property="ouputDisplayUnit" destination="VHS-0a-OUg" id="qYn-p8-mlF"/>
                         <outlet property="outputDisplay" destination="cEH-4o-5us" id="hLr-d3-X7H"/>
+                        <outlet property="outputDisplayUnit" destination="VHS-0a-OUg" id="ZHY-KH-ykK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
