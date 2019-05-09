@@ -79,6 +79,7 @@ class ConversionCalculatorViewController: UIViewController {
     @IBAction func numberInput(_ sender: UIButton) {
         self.inputDisplay.text = self.inputDisplay.text! + String(sender.tag-1)
         stringToDouble = Double(inputDisplay.text!)!
+        conversionNumber = String(stringToDouble)
         
         //work on output later
         
@@ -88,6 +89,7 @@ class ConversionCalculatorViewController: UIViewController {
     @IBAction func clearInput(_ sender: UIButton) {
         self.inputDisplay.text = ""
         self.outputDisplay.text = ""
+        conversionNumber = ""
         stringToDouble = 0
 
     }
@@ -96,7 +98,12 @@ class ConversionCalculatorViewController: UIViewController {
         stringToDouble = -stringToDouble
     
         let tempDouble = String(format: "%g", stringToDouble)
+        conversionNumber = tempDouble
         self.inputDisplay.text = tempDouble
         
+    }
+    @IBAction func decimalButton(_ sender: UIButton) {
+        conversionNumber = self.inputDisplay.text! + "."
+        self.inputDisplay.text! = conversionNumber
     }
 }

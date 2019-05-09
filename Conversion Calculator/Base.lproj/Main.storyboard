@@ -261,6 +261,9 @@
                                                         <state key="normal" title=".">
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="decimalButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Por-z6-K1j"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
