@@ -7,6 +7,11 @@
 //
 
 import Foundation
-class Conversions: ConversionCalculatorViewController{
+
+class ConversionCalculations{
+    
+    
+    
+
     
 }

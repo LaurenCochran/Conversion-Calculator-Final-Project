@@ -58,7 +58,7 @@
                                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="40"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="km" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="erD-6G-rYS">
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="erD-6G-rYS">
                                                         <rect key="frame" x="302" y="0.0" width="73" height="91.5"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="40"/>

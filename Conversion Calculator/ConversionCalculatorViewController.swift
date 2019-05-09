@@ -23,7 +23,7 @@ class ConversionCalculatorViewController: UIViewController {
         var outputUnit: String
     }
     
-    var stringToDouble: Double = 0.0
+    var stringToDouble: Double = 0
     var currentConvert: Int = -1
     var conversionNumber: String = ""
     let converters = [conversion(label: "fahrenheit to celcius", inputUnit: "°F", outputUnit: "°C"),
@@ -78,7 +78,7 @@ class ConversionCalculatorViewController: UIViewController {
 
     @IBAction func numberInput(_ sender: UIButton) {
         self.inputDisplay.text = self.inputDisplay.text! + String(sender.tag-1)
-       // stringToDouble = Double(self.inputDisplay.text!)
+        stringToDouble = Double(inputDisplay.text!)!
         
         //work on output later
         
@@ -93,11 +93,10 @@ class ConversionCalculatorViewController: UIViewController {
     }
     
     @IBAction func changeState(_ sender: UIButton) {
-        var currentInput: Double
-        currentInput = Double(self.inputDisplay.text!)!
-        
-            currentInput = -currentInput
-            self.inputDisplay.text = "- \(currentInput))"
+        stringToDouble = -stringToDouble
+    
+        let tempDouble = String(format: "%g", stringToDouble)
+        self.inputDisplay.text = tempDouble
         
     }
 }
