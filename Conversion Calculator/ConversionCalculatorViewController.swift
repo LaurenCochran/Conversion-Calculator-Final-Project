@@ -24,7 +24,7 @@ class ConversionCalculatorViewController: UIViewController{
     }
     
     var conversionCalc = ConversionCalculations()
-    var stringToDouble: Double = 0
+    var stringToDouble: Double? = 0
     var outputDouble: Double? = -1
     var conversionNumber: String = ""
     
@@ -48,24 +48,37 @@ class ConversionCalculatorViewController: UIViewController{
         alert.addAction(UIAlertAction(title: converters[0].label, style: UIAlertAction.Style.default, handler:{ (UIAlertAction)-> Void in
             self.outputDisplayUnit.text = self.converters[0].outputUnit
             self.inputDisplayUnit.text = self.converters[0].inputUnit
+            self.outputDisplay.text = String(self.conversionCalc.fToC(farenheit: (self.stringToDouble!)))
+
+
 
         }
         ))
         alert.addAction(UIAlertAction(title: converters[1].label, style: UIAlertAction.Style.default, handler:{ (UIAlertAction)-> Void in
             self.outputDisplayUnit.text = self.converters[1].outputUnit
             self.inputDisplayUnit.text = self.converters[1].inputUnit
+            self.outputDisplay.text = String(self.conversionCalc.cToF(celsius: self.stringToDouble!))
+
+
+
 
         }
         ))
         alert.addAction(UIAlertAction(title: converters[2].label, style: UIAlertAction.Style.default, handler:{ (UIAlertAction)-> Void in
             self.outputDisplayUnit.text = self.converters[2].outputUnit
             self.inputDisplayUnit.text = self.converters[2].inputUnit
+            self.outputDisplay.text = String(self.conversionCalc.mtoKm(mile: self.stringToDouble!))
+
+
+
 
         }
         ))
         alert.addAction(UIAlertAction(title: converters[3].label, style: UIAlertAction.Style.default, handler:{ (UIAlertAction)-> Void in
             self.outputDisplayUnit.text = self.converters[3].outputUnit
             self.inputDisplayUnit.text = self.converters[3].inputUnit
+            self.outputDisplay.text = String(self.conversionCalc.kmToM(kilometer: self.stringToDouble!))
+
 
         }
         ))
@@ -75,30 +88,28 @@ class ConversionCalculatorViewController: UIViewController{
     
 
     @IBAction func numberInput(_ sender: UIButton) {
-        
         self.inputDisplay.text = self.inputDisplay.text! + String(sender.tag-1)
+        stringToDouble = Double(self.inputDisplay.text!)!
         
-        stringToDouble = Double(inputDisplay.text!)!
-        conversionNumber = String(stringToDouble)
+        conversionNumber = String(stringToDouble!)
         
-    
         if self.inputDisplayUnit.text! == "°F"{
-         outputDouble = conversionCalc.fToC(farenheit: stringToDouble)
+            outputDouble = conversionCalc.fToC(farenheit: stringToDouble!)
         }
         if self.inputDisplayUnit.text! == "°C"{
-            outputDouble = conversionCalc.cToF(celsius: stringToDouble)
+            outputDouble = conversionCalc.cToF(celsius: stringToDouble!)
         }
         if self.inputDisplayUnit.text! == "mi"{
-            outputDouble = conversionCalc.mtoKm(mile: stringToDouble)
+            outputDouble = conversionCalc.mtoKm(mile: stringToDouble!)
         }
         if self.inputDisplayUnit.text! == "km"{
-            outputDouble = conversionCalc.kmToM(kilometer: stringToDouble)
+            outputDouble = conversionCalc.kmToM(kilometer: stringToDouble!)
         }
-        
         self.outputDisplay.text = String(outputDouble!)
         
+        
     }
-    
+
     
     @IBAction func clearInput(_ sender: UIButton) {
         self.inputDisplay.text = ""
@@ -109,9 +120,9 @@ class ConversionCalculatorViewController: UIViewController{
     }
     
     @IBAction func changeState(_ sender: UIButton) {
-        stringToDouble = -stringToDouble
+        stringToDouble = -stringToDouble!
     
-        let tempDouble = String(format: "%g", stringToDouble)
+        let tempDouble = String(format: "%g", stringToDouble!)
         conversionNumber = tempDouble
         self.inputDisplay.text = tempDouble
         
