@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConversionCalculatorViewController: UIViewController {
+class ConversionCalculatorViewController: UIViewController{
     
     
     @IBOutlet weak var outputDisplayUnit: UITextView!
@@ -23,22 +23,21 @@ class ConversionCalculatorViewController: UIViewController {
         var outputUnit: String
     }
     
+    var conversionCalc = ConversionCalculations()
     var stringToDouble: Double = 0
-    var currentConvert: Int = -1
+    var outputDouble: Double? = -1
     var conversionNumber: String = ""
+    
     let converters = [conversion(label: "fahrenheit to celcius", inputUnit: "°F", outputUnit: "°C"),
                       conversion(label: "celcius to fahrenheit", inputUnit: "°C", outputUnit: "°F"),
                       conversion(label: "miles to kilometers", inputUnit: "mi", outputUnit: "km"),
                       conversion(label: "kilometers to miles", inputUnit: "km", outputUnit: "mi")]
     
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let initialConverter = converters[0]
-        
         
         outputDisplayUnit.text = initialConverter.outputUnit
         inputDisplayUnit.text = initialConverter.inputUnit
@@ -49,26 +48,25 @@ class ConversionCalculatorViewController: UIViewController {
         alert.addAction(UIAlertAction(title: converters[0].label, style: UIAlertAction.Style.default, handler:{ (UIAlertAction)-> Void in
             self.outputDisplayUnit.text = self.converters[0].outputUnit
             self.inputDisplayUnit.text = self.converters[0].inputUnit
-            self.currentConvert = 0
-        
+
         }
         ))
         alert.addAction(UIAlertAction(title: converters[1].label, style: UIAlertAction.Style.default, handler:{ (UIAlertAction)-> Void in
             self.outputDisplayUnit.text = self.converters[1].outputUnit
             self.inputDisplayUnit.text = self.converters[1].inputUnit
-            self.currentConvert = 1
+
         }
         ))
         alert.addAction(UIAlertAction(title: converters[2].label, style: UIAlertAction.Style.default, handler:{ (UIAlertAction)-> Void in
             self.outputDisplayUnit.text = self.converters[2].outputUnit
             self.inputDisplayUnit.text = self.converters[2].inputUnit
-            self.currentConvert = 2
+
         }
         ))
         alert.addAction(UIAlertAction(title: converters[3].label, style: UIAlertAction.Style.default, handler:{ (UIAlertAction)-> Void in
             self.outputDisplayUnit.text = self.converters[3].outputUnit
             self.inputDisplayUnit.text = self.converters[3].inputUnit
-            self.currentConvert = 3
+
         }
         ))
         
@@ -77,11 +75,27 @@ class ConversionCalculatorViewController: UIViewController {
     
 
     @IBAction func numberInput(_ sender: UIButton) {
+        
         self.inputDisplay.text = self.inputDisplay.text! + String(sender.tag-1)
+        
         stringToDouble = Double(inputDisplay.text!)!
         conversionNumber = String(stringToDouble)
         
-        //work on output later
+    
+        if self.inputDisplayUnit.text! == "°F"{
+         outputDouble = conversionCalc.fToC(farenheit: stringToDouble)
+        }
+        if self.inputDisplayUnit.text! == "°C"{
+            outputDouble = conversionCalc.cToF(celsius: stringToDouble)
+        }
+        if self.inputDisplayUnit.text! == "mi"{
+            outputDouble = conversionCalc.mtoKm(mile: stringToDouble)
+        }
+        if self.inputDisplayUnit.text! == "km"{
+            outputDouble = conversionCalc.kmToM(kilometer: stringToDouble)
+        }
+        
+        self.outputDisplay.text = String(outputDouble!)
         
     }
     
