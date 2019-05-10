@@ -49,29 +49,18 @@ class ConversionCalculatorViewController: UIViewController{
             self.outputDisplayUnit.text = self.converters[0].outputUnit
             self.inputDisplayUnit.text = self.converters[0].inputUnit
             self.outputDisplay.text = String(self.conversionCalc.fToC(farenheit: (self.stringToDouble!)))
-
-
-
         }
         ))
         alert.addAction(UIAlertAction(title: converters[1].label, style: UIAlertAction.Style.default, handler:{ (UIAlertAction)-> Void in
             self.outputDisplayUnit.text = self.converters[1].outputUnit
             self.inputDisplayUnit.text = self.converters[1].inputUnit
             self.outputDisplay.text = String(self.conversionCalc.cToF(celsius: self.stringToDouble!))
-
-
-
-
         }
         ))
         alert.addAction(UIAlertAction(title: converters[2].label, style: UIAlertAction.Style.default, handler:{ (UIAlertAction)-> Void in
             self.outputDisplayUnit.text = self.converters[2].outputUnit
             self.inputDisplayUnit.text = self.converters[2].inputUnit
             self.outputDisplay.text = String(self.conversionCalc.mtoKm(mile: self.stringToDouble!))
-
-
-
-
         }
         ))
         alert.addAction(UIAlertAction(title: converters[3].label, style: UIAlertAction.Style.default, handler:{ (UIAlertAction)-> Void in
@@ -106,7 +95,6 @@ class ConversionCalculatorViewController: UIViewController{
             outputDouble = conversionCalc.kmToM(kilometer: stringToDouble!)
         }
         self.outputDisplay.text = String(outputDouble!)
-        
         
     }
 
